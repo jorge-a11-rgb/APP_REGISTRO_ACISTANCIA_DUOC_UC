@@ -5,30 +5,30 @@ export class Usuario_pass2 {
 
   public validarPassword1(): string {
     if (this.password1.trim() === '') {
-      return 'Para restablecar la cuenta debe ingresar la contraseña.';
+      return 'Para restablecer la cuenta debe ingresar la contraseña';
     }
     for(let i = 0; i < this.password1.length; i++) {
       if ('0123456789'.indexOf(this.password1.charAt(i)) === -1) {
-        return 'La contraseña debe ser numérica.';
+        return 'La contraseña debe ser numérica';
       }
     }
     if (this.password1.length > 4) {
-      return 'La contraseña debe ser numérica de 4 dígitos.';
+      return 'La contraseña debe ser numérica de 4 dígitos';
     }
     return '';
   }
 
   public validarPassword2(): string {
     if (this.password2.trim() === '') {
-      return 'Debe reperir la contraseña.';
+      return 'Debe repetir la contraseña';
     }
     for(let i = 0; i < this.password2.length; i++) {
       if ('0123456789'.indexOf(this.password2.charAt(i)) === -1) {
-        return 'La contraseña debe ser numérica.';
+        return 'La contraseña debe ser numérica';
       }
     }
     if (this.password2.length > 4) {
-      return 'La contraseña debe ser numérica de 4 dígitos.';
+      return 'La contraseña debe ser numérica de 4 dígitos';
     }
     if(this.password2.trim()!==this.password1){
       return 'Las contraseñas deben ser iguales';

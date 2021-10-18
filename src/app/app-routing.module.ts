@@ -28,7 +28,10 @@ const routes: Routes = [
     path: 'camara',
     loadChildren: () => import('./pages/camara/camara.module').then( m => m.CamaraPageModule)
   },
-
+  {
+    path: 'formulario',
+    loadChildren: () => import('./pages/formulario/formulario.module').then( m => m.FormularioPageModule)
+  },
 ];
 
 @NgModule({

@@ -5,10 +5,10 @@ export class Usuario_pass {
 
   public validarNombreUsuario(): string {
     if (this.nombreUsuario.trim() === '') {
-      return 'Para ingresar al sistema debe ingresar un nombre de usuario.';
+      return 'Para ingresar al sistema debe ingresar la respuesta';
     }
-    if (this.nombreUsuario.trim() !== 'Jorge12') {
-      return 'El nombre de usuario es incorrecto';
+    if (this.nombreUsuario.trim() !== 'Araya') {
+      return 'Respuesta incorrecta';
     }
     return '';
   }

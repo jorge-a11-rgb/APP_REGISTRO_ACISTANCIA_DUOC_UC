@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar #titulo3 color="primary">
+    <ion-title>Datos alumno</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- Comienza el Content -->
+<ion-content [fullscreen]="true" class="ion-padding-horizontal">
+  <ion-title class="ion-padding-top ion-text-center">
+    <ion-label>
+      <h1>Bienvenido</h1>
+
+    </ion-label>
+  </ion-title>
+  <b class="ion-text-center">
+    <h4>Llene el formulario</h4>
+  </b>
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="stacked">RUT sin puntos ni guion paciente</ion-label>
+    <ion-input type="number" [(ngModel)]="datos.rut"></ion-input>
+  </ion-item>
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="stacked">Nombre alumno</ion-label>
+    <ion-input type="text" [(ngModel)]="datos.nombre"></ion-input>
+  </ion-item>
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="stacked">Apellido paterno alumno</ion-label>
+    <ion-input type="text" [(ngModel)]="datos.apelllidoPaterno"></ion-input>
+  </ion-item>
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="stacked">Apellido materno alumno</ion-label>
+    <ion-input type="text" [(ngModel)]="datos.apellidoMaterno"></ion-input>
+  </ion-item>
+
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="stacked">Segundo apellido de su madre</ion-label>
+    <ion-input type="text" [(ngModel)]="datos.segundoApellidoMama"></ion-input>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-button shape="block" (click)="limpiarFormulario()">
+          Limpiar
+        </ion-button>
+      </ion-col>
+      <ion-col col-6>
+        <ion-button shape="block" (click)=" mostrar()">
+          Mostrar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+</ion-content>
+<!-- Termina el Content -->
