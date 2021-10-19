@@ -5,4 +5,5 @@ export class Alumno {
   public apelllidoPaterno: '';
   public apellidoMaterno: '';
   public segundoApellidoMama: '';
+  public id: 0;
 }

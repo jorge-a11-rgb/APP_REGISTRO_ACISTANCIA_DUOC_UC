@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DBTaskService } from './dbtask.service';
+import { AuthGardService } from './auth-gard.service';
 
-describe('DBTaskService', () => {
-  let service: DBTaskService;
+describe('AuthGardService', () => {
+  let service: AuthGardService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DBTaskService);
+    service = TestBed.inject(AuthGardService);
   });
 
   it('should be created', () => {

@@ -1,6 +1,3 @@
-/* eslint-disable object-shorthand */
-/* eslint-disable @typescript-eslint/semi */
-/* eslint-disable @typescript-eslint/quotes */
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
@@ -19,8 +16,8 @@ export class AuthenticationService {
     private storage: Storage,
     public dbtaskService: DBTaskService,
     public toastController: ToastController
-  )
-  {
+  ) 
+  { 
     this.isLogged();
   }
   /**
@@ -29,7 +26,6 @@ export class AuthenticationService {
   isLogged(){
     this.storage.get("USER_DATA").
     then((response)=>{
-      // eslint-disable-next-line @typescript-eslint/semi
       console.log(response)
       if(response!=null){
         this.authState.next(true); //Se establece en verdadero el estado de la authentication
@@ -61,7 +57,7 @@ export class AuthenticationService {
       .catch((error)=>console.error(error))
     });
   }
-  login(login: any){
+  login(login:any){
     // Se obtiene si existe alguna data de sesión
     this.dbtaskService.getSesionData(login)
     .then((data)=>{ // Si se ejecuto correctamente la consulta
@@ -74,7 +70,7 @@ export class AuthenticationService {
           this.storage.set("USER_DATA",data); // Guardamos la data retornada
           this.authState.next(true);
           this.router.navigate(['home']); // Y se navega hasta el home
-
+          
         });
       }
     })
@@ -82,7 +78,7 @@ export class AuthenticationService {
       console.log(error);
     });
   }
-  async presentToast(message: string, duration?: number){
+  async presentToast(message:string, duration?:number){
     const toast = await this.toastController.create(
       {
         message:message,

@@ -1,13 +1,14 @@
 import { TestBed } from '@angular/core/testing';
+import { ApiDataService } from './api-data.service';
 
-import { DBTaskService } from './dbtask.service';
 
-describe('DBTaskService', () => {
-  let service: DBTaskService;
+
+describe('APIClientService', () => {
+  let service: ApiDataService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DBTaskService);
+    service = TestBed.inject(ApiDataService);
   });
 
   it('should be created', () => {
