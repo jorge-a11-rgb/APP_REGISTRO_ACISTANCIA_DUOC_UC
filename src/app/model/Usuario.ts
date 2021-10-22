@@ -1,6 +1,8 @@
 export class Usuario {
+  public id= 0;
   public nombreUsuario = '';
   public password = '';
+  public password2= '';
 
   public validarNombreUsuario(): string {
     if (this.nombreUsuario.trim() === '') {
@@ -25,6 +27,9 @@ export class Usuario {
       return 'La contraseña es incorrecta';
     }
     return '';
+    if(this.password2.trim() !== this.password.trim()){
+      return 'Las claves deben ser iguales';
+    }
   }
 
   public validarUsuario(): string {

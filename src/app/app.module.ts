@@ -16,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DBTaskService } from './services/dbtask.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthenticationService } from './services/authentication.service';
-
+import { Storage } from '@ionic/storage';
 @NgModule({
   declarations: [AppComponent, DatosBasicosComponent, PreguntaClaveComponent],
   entryComponents: [],
@@ -29,6 +29,7 @@ import { AuthenticationService } from './services/authentication.service';
     AuthenticationService,
     StatusBar,
     SplashScreen,
+    Storage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

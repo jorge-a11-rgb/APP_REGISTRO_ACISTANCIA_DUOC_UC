@@ -18,26 +18,20 @@
       </div>
 
   </b>
+
   <ion-item class="ion-padding-horizontal">
-    <ion-label position="stacked">RUT sin puntos ni guion paciente</ion-label>
-    <ion-input type="number" [(ngModel)]="datos.rut"></ion-input>
-  </ion-item>
-  <ion-item class="ion-padding-horizontal">
-    <ion-label position="stacked">Nombre alumno</ion-label>
-    <ion-input type="text" [(ngModel)]="datos.nombre"></ion-input>
-  </ion-item>
-  <ion-item class="ion-padding-horizontal">
-    <ion-label position="stacked">Apellido paterno alumno</ion-label>
-    <ion-input type="text" [(ngModel)]="datos.apelllidoPaterno"></ion-input>
-  </ion-item>
-  <ion-item class="ion-padding-horizontal">
-    <ion-label position="stacked">Apellido materno alumno</ion-label>
-    <ion-input type="text" [(ngModel)]="datos.apellidoMaterno"></ion-input>
+    <ion-label position="stacked">Usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.nombreUsuario"></ion-input>
   </ion-item>
 
   <ion-item class="ion-padding-horizontal">
-    <ion-label position="stacked">Segundo apellido de su madre</ion-label>
-    <ion-input type="text" [(ngModel)]="datos.segundoApellidoMama"></ion-input>
+    <ion-label position="stacked">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="usuario.password"></ion-input>
+  </ion-item>
+
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="stacked">Repite contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="usuario.password2"></ion-input>
   </ion-item>
 
   <ion-grid>
