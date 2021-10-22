@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/semi */
 /* eslint-disable arrow-body-style */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/quotes */
@@ -14,6 +15,7 @@ import { Usuario } from 'src/app/model/Usuario';
 import { createAnimation } from '@ionic/angular';
 
 import { ApiDataService } from 'src/app/services/api-data.service';
+import { APIClientService } from 'src/app/services/apiclient.service';
 
 @Component({
   selector: 'app-datos-basicos',
@@ -22,8 +24,18 @@ import { ApiDataService } from 'src/app/services/api-data.service';
 })
 export class DatosBasicosComponent implements OnInit, AfterViewInit {
   @ViewChild('titulo3', { read: ElementRef, static: true }) titulo3: ElementRef;
+  user: any;
+  users: any;
   posts: any;
-
+  post: any={
+    id: null,
+    us: "",
+    pass: "",
+    pass2: "",
+    ap2materno:"",
+    userId: null
+  };
+  compareWith: any;
   public ngOnInit() {}
 
   public ngAfterViewInit(): void {
@@ -38,7 +50,6 @@ export class DatosBasicosComponent implements OnInit, AfterViewInit {
     animation.play();
   }
 
-  public usuario: Usuario;
 
 
   constructor(
@@ -46,86 +57,82 @@ export class DatosBasicosComponent implements OnInit, AfterViewInit {
     private activeroute: ActivatedRoute,
     private router: Router,
     private alertController: AlertController,
-    private api: ApiDataService
-  ) {
-    this.usuario = new Usuario();
-    this.usuario.nombreUsuario = '';
-    this.usuario.password = '';
-    this.usuario.password2 = '';
-  }
+    private api: APIClientService
+  ) {}
 
-  ionViewWillEnter() {
+  ionViewWillEnter(){
     this.getUsuarios();
     this.getPosts();
   }
-  getUsuario(userId) {
-    this.api.getUsuario(userId).subscribe((data) => {
-      console.log(data);
-      this.usuario = data;
+  getUsuario(userId){
+    this.api.getUsuario(userId).subscribe((data)=>{
+      console.log(data)
+      this.user=data;
     });
   }
-  getUsuarios() {
-    this.api.getUsuarios().subscribe((data) => {
-      this.usuario= data;
+  getUsuarios(){
+    this.api.getUsuarios().subscribe((data)=>{
+      this.users=data;
     });
   }
-  getPosts() {
-    this.api.getPosts().subscribe((data) => {
-      this.posts = data;
+  getPosts(){
+    this.api.getPosts().subscribe((data)=>{
+      this.posts=data;
       this.posts.reverse();
     });
   }
-  guardarPost() {
-    if (this.posts.userId == null) {
-      if (this.usuario === undefined) {
-        console.log('Seleccione un usuario');
+  guardarPost(){
+    if(this.post.userId==null){
+      if(this.user===undefined){
+        console.log("Seleccione un usuario");
         return;
       }
-      this.posts.userId = this.usuario.id;
-      this.api.createPost(this.posts).subscribe(
-        () => {
-          console.log('Creado Correctamente');
+      this.post.userId=this.user.id;
+      this.api.createPost(this.post).subscribe(
+        ()=>{
+          console.log("Creado Correctamente");
           this.getPosts();
         },
-        (error) => {
-          console.log('Error ' + error);
+        error=>{
+          console.log("Error "+error)
         }
       );
-    } else {
-      this.api.updatePost(this.posts.id, this.posts).subscribe(
-        () => {
-          console.log('Actualzado Correctamente');
+    }
+    else{
+      this.api.updatePost(this.post.id,this.post).subscribe(
+        ()=>{
+          console.log("Actualzado Correctamente");
           this.getPosts();
         },
-        (error) => {
-          console.log('Error ' + error);
+        error=>{
+          console.log("Error "+error)
         }
       );
     }
   }
-  setPost(_post) {
-    this.posts = _post;
+  setPost(_post){
+    this.post=_post;
     this.getUsuario(_post.userId);
-    this.compareWithFn = this.compareWithFn;
+    this.compareWith = this.compareWithFn;
   }
-  eleminarPost(_post) {
-    console.log('eeliminar');
+  eleminarPost(_post){
+    console.log("eeliminar")
     this.api.deletePost(_post.id).subscribe(
-      (success) => {
-        console.log('Eliminado correctamente');
+      success=>{
+        console.log("Eliminado correctamente");
         this.getPosts();
       },
-      (error) => {
-        console.log('Error ' + error);
+      error=>{
+        console.log("Error "+error)
       }
-    );
+    )
   }
   compareWithFn = (o1, o2) => {
     return o1 && o2 ? o1.id === o2.id : o1 === o2;
   };
   public limpiarFormulario(): void {
-    for (const [key, value] of Object.entries(this.usuario)) {
-      Object.defineProperty(this.usuario, key, { value: '' });
+    for (const [key, value] of Object.entries(this.post)) {
+      Object.defineProperty(this.post, key, { value: '' });
     }
   }
 }

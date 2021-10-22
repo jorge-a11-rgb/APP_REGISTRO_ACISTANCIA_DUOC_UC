@@ -32,16 +32,10 @@ export class DBTaskService {
     (
       user_name TEXT PRIMARY KEY NOT NULL,
       password INTEGER NOT NULL,
+      segundo_apellido_materno NOT NULL,
       active INTEGER(1) NOT NULL
     );
-    CREATE TABLE IF NOT EXISTS alumno
-    (
-      rut NUMBER PRIMARY KEY AUTOINCREMENT,
-      nombre TEXT NOT NULL,
-      apellido_materno TEXT NOT NULL,
-      apellido_paterno TEXT NOT NULL,
-      segundo_apellido_mama TEXT NOT NULL
-    );`;
+    `;
     return this.db.executeSql(tables);
   }
   /**

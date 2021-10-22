@@ -20,18 +20,23 @@
   </b>
 
   <ion-item class="ion-padding-horizontal">
-    <ion-label position="stacked">Usuario</ion-label>
-    <ion-input type="text" [(ngModel)]="usuario.nombreUsuario"></ion-input>
+    <ion-label position="floating">Usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="post.us"></ion-input>
   </ion-item>
 
   <ion-item class="ion-padding-horizontal">
-    <ion-label position="stacked">Contraseña</ion-label>
-    <ion-input type="password" [(ngModel)]="usuario.password"></ion-input>
+    <ion-label position="floating">Segundo apellido materno</ion-label>
+    <ion-input type="text" [(ngModel)]="post.ap2materno"></ion-input>
   </ion-item>
 
   <ion-item class="ion-padding-horizontal">
-    <ion-label position="stacked">Repite contraseña</ion-label>
-    <ion-input type="password" [(ngModel)]="usuario.password2"></ion-input>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="post.pass"></ion-input>
+  </ion-item>
+
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="floating">Repite contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="post.pass2"></ion-input>
   </ion-item>
 
   <ion-grid>
@@ -43,7 +48,7 @@
       </ion-col>
       <ion-col col-6>
         <ion-button shape="block" (click)="guardarPost()">
-          Mostrar
+          Registrarse
         </ion-button>
       </ion-col>
     </ion-row>
