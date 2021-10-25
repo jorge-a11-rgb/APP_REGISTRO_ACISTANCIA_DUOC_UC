@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router, NavigationExtras } from '@angular/router';
 
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
 
 import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+
 import { $ } from 'protractor';
 
 
@@ -36,6 +36,7 @@ export class LoginPage implements OnInit, AfterViewInit {
     this.usuario.nombreUsuario = '';
     this.usuario.password = '';
   }
+
   public ngAfterViewInit(): void {
     // eslint-disable-next-line prefer-const
     let animation = this.animationController.create()
